@@ -41,8 +41,8 @@ def changeColor(btn):
     if (len(btn_counter) == 2):
         btn_counter[len(btn_counter)-2].config(text="?")
         btn_counter[len(btn_counter)-1].config(text="?")
-        btn_counter[len(btn_counter)-2].config(bg='#f0f', fg='#fff')
-        btn_counter[len(btn_counter)-1].config(bg='#f0f', fg='#fff')
+        btn_counter[len(btn_counter)-2].config(bg='#00f', fg='#fff')
+        btn_counter[len(btn_counter)-1].config(bg='#00f', fg='#fff')
         
         btn_counter = []
     
@@ -55,8 +55,8 @@ def changeColor(btn):
         value_btn2 = table[int(value_indx2/4),int(value_indx2%4)]
 
         if(btn_counter[0] == btn):
-            btn.configure(bg='#f0f', fg='#fff')
-            btn_counter[len(btn_counter)-1].configure(bg='#f0f', fg='#fff')
+            btn.configure(bg='#00f', fg='#fff')
+            btn_counter[len(btn_counter)-1].configure(bg='#00f', fg='#fff')
             btn.config(text="?")
             btn_counter[0].config(text="?")
             btn_counter = []
@@ -73,10 +73,10 @@ def changeColor(btn):
                 btn_counter[len(btn_counter)-1].config(bg='#ff0')
                 btn_counter = []
                 done +=1
-                if done == 6: ##reset part
+                if done == 8: ##reset part
                     done = 0
                     tkMessageBox.showinfo(title="Gratuliere!", message="Du hesch gwunne!")
-                    table = Table_gen(3,4)
+                    table = Table_gen(4,4)
                     declare()
 
             else:
@@ -90,55 +90,72 @@ def changeColor(btn):
 def declare():
     global button_dict
     button_dict[0]=tk.Button(top, command=lambda: changeColor(button_dict[0]),text="?", font=helv36)
-    button_dict[0].configure(bg='#f0f', fg='#fff')
+    button_dict[0].configure(bg='#00f', fg='#fff')
     button_dict[0].grid(row=0,column=0)
 
     button_dict[1]=tk.Button(top, command=lambda: changeColor(button_dict[1]),text="?", font=helv36)
-    button_dict[1].configure(bg='#f0f', fg='#fff')
+    button_dict[1].configure(bg='#00f', fg='#fff')
     button_dict[1].grid(row=0,column=1)
 
     button_dict[2]=tk.Button(top, command=lambda: changeColor(button_dict[2]),text="?", font=helv36)
-    button_dict[2].configure(bg='#f0f', fg='#fff')
+    button_dict[2].configure(bg='#00f', fg='#fff')
     button_dict[2].grid(row=0,column=2)
 
     button_dict[3]=tk.Button(top, command=lambda: changeColor(button_dict[3]),text="?", font=helv36)
-    button_dict[3].configure(bg='#f0f', fg='#fff')
+    button_dict[3].configure(bg='#00f', fg='#fff')
     button_dict[3].grid(row=0,column=3)
 
     button_dict[4]=tk.Button(top, command=lambda: changeColor(button_dict[4]),text="?", font=helv36)
-    button_dict[4].configure(bg='#f0f', fg='#fff')
+    button_dict[4].configure(bg='#00f', fg='#fff')
     button_dict[4].grid(row=1,column=0)
 
     button_dict[5]=tk.Button(top, command=lambda: changeColor(button_dict[5]),text="?", font=helv36)
-    button_dict[5].configure(bg='#f0f', fg='#fff')
+    button_dict[5].configure(bg='#00f', fg='#fff')
     button_dict[5].grid(row=1,column=1)
 
     button_dict[6]=tk.Button(top, command=lambda: changeColor(button_dict[6]),text="?", font=helv36)
-    button_dict[6].configure(bg='#f0f', fg='#fff')
+    button_dict[6].configure(bg='#00f', fg='#fff')
     button_dict[6].grid(row=1,column=2)
 
     button_dict[7]=tk.Button(top, command=lambda: changeColor(button_dict[7]),text="?", font=helv36)
-    button_dict[7].configure(bg='#f0f', fg='#fff')
+    button_dict[7].configure(bg='#00f', fg='#fff')
     button_dict[7].grid(row=1,column=3)
 
     button_dict[8]=tk.Button(top, command=lambda: changeColor(button_dict[8]),text="?", font=helv36)
-    button_dict[8].configure(bg='#f0f', fg='#fff')
+    button_dict[8].configure(bg='#00f', fg='#fff')
     button_dict[8].grid(row=2,column=0)
 
     button_dict[9]=tk.Button(top, command=lambda: changeColor(button_dict[9]),text="?", font=helv36)
-    button_dict[9].configure(bg='#f0f', fg='#fff')
+    button_dict[9].configure(bg='#00f', fg='#fff')
     button_dict[9].grid(row=2,column=1)
 
     button_dict[10]=tk.Button(top, command=lambda: changeColor(button_dict[10]),text="?", font=helv36)
-    button_dict[10].configure(bg='#f0f', fg='#fff')
+    button_dict[10].configure(bg='#00f', fg='#fff')
     button_dict[10].grid(row=2,column=2)
 
     button_dict[11]=tk.Button(top, command=lambda: changeColor(button_dict[11]),text="?", font=helv36)
-    button_dict[11].configure(bg='#f0f', fg='#fff')
+    button_dict[11].configure(bg='#00f', fg='#fff')
     button_dict[11].grid(row=2,column=3)
 
+    button_dict[12]=tk.Button(top, command=lambda: changeColor(button_dict[12]),text="?", font=helv36)
+    button_dict[12].configure(bg='#00f', fg='#fff')
+    button_dict[12].grid(row=3,column=0)
 
-table = Table_gen(3,4)
+    button_dict[13]=tk.Button(top, command=lambda: changeColor(button_dict[13]),text="?", font=helv36)
+    button_dict[13].configure(bg='#00f', fg='#fff')
+    button_dict[13].grid(row=3,column=1)
+
+    button_dict[14]=tk.Button(top, command=lambda: changeColor(button_dict[14]),text="?", font=helv36)
+    button_dict[14].configure(bg='#00f', fg='#fff')
+    button_dict[14].grid(row=3,column=2)
+
+    button_dict[15]=tk.Button(top, command=lambda: changeColor(button_dict[15]),text="?", font=helv36)
+    button_dict[15].configure(bg='#00f', fg='#fff')
+    button_dict[15].grid(row=3,column=3)
+
+
+
+table = Table_gen(4,4)
 declare()
 
 top.mainloop()
