@@ -4,19 +4,30 @@ import tkinter as tk
 import tkinter.messagebox as tkMessageBox
 from tkinter import font as tkFont
 import time
+from threading import Thread    
+import threading
+from tkinter import *
 
 global btn_counter
 global button_dict
 global table
 global done
+global message ,text_box, timer_txt
+global timeVal
+global reset
+
 
 btn_counter = []
 button_dict = {}
 done = 0
+message = 0
+timeVal = 0
+reset = 0
 
 
 top = tk.Tk()
 helv36 = tkFont.Font(family='Helvetica', size=36, weight=tkFont.BOLD)
+helv26 = tkFont.Font(family='Helvetica', size=26, weight=tkFont.BOLD)
 
 
 
@@ -34,6 +45,26 @@ def changeColor(btn):
     global btn_counter
     global table
     global done
+    global message
+    global timeVal
+    global reset
+    global timer_txt
+
+            
+    # if (timeVal >=2):
+    #     reset = 0
+    #     done = 0
+    #     message = 0
+    #     timeVal = 0
+    #     table = Table_gen(4,4)
+    #     timer_txt.configure(fg='#000')
+    #     declare()
+
+
+
+    message += 1
+    text_box.delete(1.0, tk.END)
+    text_box.insert('end', message)
 
     value_indx1 = list(button_dict.keys())[list(button_dict.values()).index(btn)]
     value_btn1 = table[int(value_indx1/4),int(value_indx1%4)]
@@ -75,6 +106,9 @@ def changeColor(btn):
                 done +=1
                 if done == 8: ##reset part
                     done = 0
+                    message = 0
+                    timeVal = 0
+                    timer_txt.configure(fg='#000')
                     tkMessageBox.showinfo(title="Gratuliere!", message="Du hesch gwunne!")
                     table = Table_gen(4,4)
                     declare()
@@ -154,8 +188,69 @@ def declare():
     button_dict[15].grid(row=3,column=3)
 
 
+def timer():
+    global timeVal, timer_txt
+    global reset
+    while(True):
+        time.sleep(1)
+        timeVal += 1
+        timer_txt.delete(1.0, tk.END)
+        timer_txt.insert('end', timeVal)
+        if timeVal >=30 :
+            timer_txt.configure(fg='#f00')
+
+
+text_box = Text(
+    top,
+    height=1,
+    width=3,
+    font=helv26,
+)
+
+text_box.pack(expand=True)
+text_box.insert('end', message)
+text_box.grid(row=1,column=4)
+text_box.tag_add("center", "1.0", "end")
+
+
+text1 = Text(
+    top,
+    height=1,
+    width=6,
+    font=helv26
+)
+
+text1.insert('end', "Clicks:")
+text1.grid(row=0,column=4)
+
+
+timer_txt = Text(
+    top,
+    height=1,
+    width=3,
+    font=helv26
+)
+
+timer_txt.insert('end', timeVal)
+timer_txt.grid(row=3,column=4)
+
+
+text2 = Text(
+    top,
+    height=1,
+    width=6,
+    font=helv26
+)
+
+text2.insert('end', "Timer:")
+text2.grid(row=2,column=4)
+
+
 
 table = Table_gen(4,4)
 declare()
 
+
+thread = threading.Thread(target=timer)
+thread.start()
 top.mainloop()
