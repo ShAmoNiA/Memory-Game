@@ -50,18 +50,6 @@ def changeColor(btn):
     global reset
     global timer_txt
 
-            
-    # if (timeVal >=2):
-    #     reset = 0
-    #     done = 0
-    #     message = 0
-    #     timeVal = 0
-    #     table = Table_gen(4,4)
-    #     timer_txt.configure(fg='#000')
-    #     declare()
-
-
-
     message += 1
     text_box.delete(1.0, tk.END)
     text_box.insert('end', message)
@@ -70,10 +58,10 @@ def changeColor(btn):
     value_btn1 = table[int(value_indx1/4),int(value_indx1%4)]
 
     if (len(btn_counter) == 2):
-        btn_counter[len(btn_counter)-2].config(text="?")
-        btn_counter[len(btn_counter)-1].config(text="?")
-        btn_counter[len(btn_counter)-2].config(bg='#00f', fg='#fff')
-        btn_counter[len(btn_counter)-1].config(bg='#00f', fg='#fff')
+        btn_counter[0].config(text="?")
+        btn_counter[1].config(text="?")
+        btn_counter[0].config(bg='#00f', fg='#fff')
+        btn_counter[1].config(bg='#00f', fg='#fff')
         
         btn_counter = []
     
@@ -87,9 +75,7 @@ def changeColor(btn):
 
         if(btn_counter[0] == btn):
             btn.configure(bg='#00f', fg='#fff')
-            btn_counter[len(btn_counter)-1].configure(bg='#00f', fg='#fff')
             btn.config(text="?")
-            btn_counter[0].config(text="?")
             btn_counter = []
 
         else:
@@ -115,9 +101,7 @@ def changeColor(btn):
 
             else:
                 btn.config(text=value_btn1)
-                btn_counter[len(btn_counter)-1].config(text=value_btn2)
                 btn.config(bg='#f00')
-                btn_counter[len(btn_counter)-1].config(bg='#f00')
 
                 btn_counter.append(btn)
 
@@ -200,48 +184,22 @@ def timer():
             timer_txt.configure(fg='#f00')
 
 
-text_box = Text(
-    top,
-    height=1,
-    width=3,
-    font=helv26,
-)
-
-text_box.pack(expand=True)
+text_box = Text(top,height=1,width=3,font=helv26,)
 text_box.insert('end', message)
 text_box.grid(row=1,column=4)
-text_box.tag_add("center", "1.0", "end")
 
 
-text1 = Text(
-    top,
-    height=1,
-    width=6,
-    font=helv26
-)
-
+text1 = Text(top,height=1,width=6,font=helv26)
 text1.insert('end', "Clicks:")
 text1.grid(row=0,column=4)
 
 
-timer_txt = Text(
-    top,
-    height=1,
-    width=3,
-    font=helv26
-)
-
+timer_txt = Text(top,height=1,width=3,font=helv26)
 timer_txt.insert('end', timeVal)
 timer_txt.grid(row=3,column=4)
 
 
-text2 = Text(
-    top,
-    height=1,
-    width=6,
-    font=helv26
-)
-
+text2 = Text(top,height=1,width=6,font=helv26)
 text2.insert('end', "Timer:")
 text2.grid(row=2,column=4)
 
