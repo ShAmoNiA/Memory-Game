@@ -70,7 +70,7 @@ def changeColor(btn):
         btn.config(text=value_btn1)
         btn_counter.append(btn)
     else:
-        value_indx2 = list(button_dict.values()).index(btn_counter[len(btn_counter)-1])
+        value_indx2 = list(button_dict.values()).index(btn_counter[0])
         value_btn2 = table[int(value_indx2/4),int(value_indx2%4)]
 
         if(btn_counter[0] == btn):
